@@ -4,3 +4,8 @@ new update for police-vehicleshop-2.0.1 new name and add ui to it so it can look
 *
 
 if you want to edit the vehicle list form the config its easy
+
+*
+
+video :
+https://youtu.be/iFrSUbY7gZo
