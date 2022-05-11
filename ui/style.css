@@ -1,0 +1,38 @@
+*{
+    font-family: Calibri;
+    user-select: none;
+}
+
+#main-container{
+    display: none;
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.vehicle{
+    position: relative;
+    color: #C3C7D2;
+    background-color: #232833;
+    width: 280px;
+    border-radius: 5px;
+    margin-top: 6px;
+    transition: 0.2s;
+    box-shadow: 0px 0px 7px 0.1px rgba(0,0,0,0.80);
+}
+.vehicle:hover{
+    background-color: #31465E;
+}
+.vehicle-icon{
+    position: absolute;
+    right: 3%;
+    transform: translateY(-50%);
+    top: 52%;
+    font-size: 1.3rem;
+}
+.vehicle-name{
+    padding: 5px;
+}
+.vehicle-price{
+    padding: 0px 0px 5px 5px;
+}
