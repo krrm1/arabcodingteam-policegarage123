@@ -305,6 +305,8 @@ DrawText3D = function(x, y, z, text)
 end
 
 
+Citizen.CreateThread(function()
+  Wait(200)
 exports['qb-target']:AddBoxZone("npc", vector3(459.0, -1017.27, 28.29), 0.8, 0.6, {
   name = "npc",
   heading=2,
@@ -323,3 +325,5 @@ exports['qb-target']:AddBoxZone("npc", vector3(459.0, -1017.27, 28.29), 0.8, 0.6
   },
   distance = 1.5,
 })
+
+end)
