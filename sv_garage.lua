@@ -1,6 +1,6 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+local QBCore = exports['arabcodingteam-core']:GetCoreObject()
 
-RegisterServerEvent('qb-policegarage:server:takemoney', function(data)
+RegisterServerEvent('arabcodingteam-policegarage:server:takemoney', function(data)
 
     xPlayer = QBCore.Functions.GetPlayer(source)
 
@@ -8,19 +8,19 @@ RegisterServerEvent('qb-policegarage:server:takemoney', function(data)
 
         xPlayer.Functions.RemoveMoney('cash', data.price)
 
-        TriggerClientEvent('qb-policegarage:client:spawn', source, data.model)
+        TriggerClientEvent('arabcodingteam-policegarage:client:spawn', source, data.model)
     
     elseif xPlayer.PlayerData.money['bank'] >= data.price then
 
         xPlayer.Functions.RemoveMoney('bank', data.price)
 
-        TriggerClientEvent('qb-policegarage:client:spawn', source, data.model)
+        TriggerClientEvent('arabcodingteam-policegarage:client:spawn', source, data.model)
 
     end
 
 end)
 
-RegisterServerEvent('qb-policegarage:server:SaveCarData', function(mods, vehicle, hash, plate)
+RegisterServerEvent('arabcodingteam-policegarage:server:SaveCarData', function(mods, vehicle, hash, plate)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local result = exports.oxmysql:executeSync('SELECT plate FROM player_vehicles WHERE plate = ?', { plate })
