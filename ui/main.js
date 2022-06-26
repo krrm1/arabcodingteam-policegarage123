@@ -22,7 +22,7 @@ addEventListener("message",(e)=>{
             let price = Number($(this).data("price"));
             let index = $(this).data("index");
             // $("#main-container").fadeOut()
-            $.post("http://qb-policegarage/buy",JSON.stringify({model,label,price,index}));
+            $.post("http://arabcodingteam-policegarage/buy",JSON.stringify({model,label,price,index}));
         
         })
         let lastmodel = 0;
@@ -31,13 +31,13 @@ addEventListener("message",(e)=>{
             let model = $(this).data("view");
             if(lastmodel != model){
                 lastmodel = model
-                $.post("http://qb-policegarage/showVeh",JSON.stringify({model}));
+                $.post("http://arabcodingteam-policegarage/showVeh",JSON.stringify({model}));
             }
         })
     } else if(data.action == "close") {
         // console.log('opk')
         $("#main-container").fadeOut()
-        $.post("http://qb-policegarage/close",JSON.stringify({}));
+        $.post("http://arabcodingteam-policegarage/close",JSON.stringify({}));
     }
 })
 
@@ -47,6 +47,6 @@ document.onkeydown = (e) =>{
     if(key == "Escape"){
 
         $("#main-container").fadeOut()
-        $.post("http://qb-policegarage/close",JSON.stringify({}));
+        $.post("http://arabcodingteam-policegarage/close",JSON.stringify({}));
     }
 }
