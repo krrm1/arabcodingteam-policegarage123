@@ -1,4 +1,4 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+local QBCore = exports['arabcodingteam-core']:GetCoreObject()
 local cam
 local lastpos
 local veh
@@ -23,7 +23,7 @@ local pedspawned = false
 
 --                 if IsControlJustPressed(0, 38) then
 
---                     TriggerEvent("qb-policegarage:openUI")
+--                     TriggerEvent("arabcodingteam-policegarage:openUI")
 
 --                 end
 
@@ -44,7 +44,7 @@ Citizen.CreateThread(function()
 			local dist = #(v.Cords - pos)
 			
 			if dist < 40 and pedspawned == false then
-				TriggerEvent('qb-policegarge:spawnped',v.Cords,v.h)
+				TriggerEvent('arabcodingteam-policegarge:spawnped',v.Cords,v.h)
 				pedspawned = true
 			end
 			if dist >= 35 then
@@ -55,8 +55,8 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterNetEvent('qb-policegarge:spawnped')
-AddEventHandler('qb-policegarge:spawnped',function(coords,heading)
+RegisterNetEvent('arabcodingteam-policegarge:spawnped')
+AddEventHandler('arabcodingteam-policegarge:spawnped',function(coords,heading)
 	local hash = GetHashKey('ig_trafficwarden')
 	if not HasModelLoaded(hash) then
 		RequestModel(hash)
@@ -122,7 +122,7 @@ RegisterNUICallback("showVeh", function(data,cb)
     SetVehicleExtra(veh, 2)
 end)
 
-RegisterNetEvent("qb-policegarage:client:spawn",function(model,spawnLoc,spawnHeading)
+RegisterNetEvent("arabcodingteam-policegarage:client:spawn",function(model,spawnLoc,spawnHeading)
     local ped = PlayerPedId()
     RequestModel(model)
 
@@ -154,7 +154,7 @@ RegisterNUICallback("buy", function(data,cb)
 
     })
 
-    TriggerServerEvent('qb-policegarage:server:takemoney', data)
+    TriggerServerEvent('arabcodingteam-policegarage:server:takemoney', data)
 
     SetEntityCoords(PlayerPedId(), lastpos.x, lastpos.y, lastpos.z)
 
@@ -176,7 +176,7 @@ RegisterNUICallback("buy", function(data,cb)
 
     Wait(500)
     
-    TriggerEvent('qb-policegarage:client:SaveCar')
+    TriggerEvent('arabcodingteam-policegarage:client:SaveCar')
 end)
 
 RegisterNUICallback("close", function()
@@ -204,7 +204,7 @@ RegisterNUICallback("close", function()
 end)
 
 
-RegisterNetEvent('qb-policegarage:client:SaveCar', function()
+RegisterNetEvent('arabcodingteam-policegarage:client:SaveCar', function()
     local ped = PlayerPedId()
     local veh = GetVehiclePedIsIn(ped)
 
@@ -214,7 +214,7 @@ RegisterNetEvent('qb-policegarage:client:SaveCar', function()
         local hash = props.model
         local vehname = GetDisplayNameFromVehicleModel(hash):lower()
         if QBCore.Shared.Vehicles[vehname] ~= nil and next(QBCore.Shared.Vehicles[vehname]) ~= nil then
-            TriggerServerEvent('qb-policegarage:server:SaveCarData', props, QBCore.Shared.Vehicles[vehname], `veh`, plate)
+            TriggerServerEvent('arabcodingteam-policegarage:server:SaveCarData', props, QBCore.Shared.Vehicles[vehname], `veh`, plate)
         else
             QBCore.Functions.Notify('You cant store this vehicle in your garage..', 'error')
         end
@@ -224,7 +224,7 @@ RegisterNetEvent('qb-policegarage:client:SaveCar', function()
 end)
 
 
-RegisterNetEvent("qb-policegarage:openUI",function()
+RegisterNetEvent("arabcodingteam-policegarage:openUI",function()
 
     changeCam()
 
@@ -307,7 +307,7 @@ end
 
 Citizen.CreateThread(function()
   Wait(200)
-exports['qb-target']:AddBoxZone("npc", vector3(459.0, -1017.27, 28.29), 0.8, 0.6, {
+exports['arabcodingteam-target']:AddBoxZone("npc", vector3(459.0, -1017.27, 28.29), 0.8, 0.6, {
   name = "npc",
   heading=2,
   debugPoly=false,
@@ -317,7 +317,7 @@ exports['qb-target']:AddBoxZone("npc", vector3(459.0, -1017.27, 28.29), 0.8, 0.6
   options = { 
     { 
       type = "client", 
-      event = "qb-policegarage:openUI",
+      event = "arabcodingteam-policegarage:openUI",
       icon = 'fas fa-garage',
       label = 'Police Garage',
       job = 'police'
